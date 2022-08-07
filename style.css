@@ -57,6 +57,7 @@ input:focus, textarea:focus {
     border-color: #CD001A;
 }
 
+
 .container {
     padding: 50px 0;
     width: 100%;
@@ -123,6 +124,47 @@ p {
 .link__hover-effect:hover:after {
     left: 0;
     width: 100%;
+}
+
+nav,
+.scroll,
+.header {
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms 800ms;
+}
+
+.modal--open nav,
+.modal--open .scroll,
+.modal--open .header {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 400ms 200ms;
+}
+
+.dark-theme .title,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-spinner,
+.dark-theme .header__para {
+    color: white;
+}
+
+.dark-theme section {
+    background-color: #242424;
+}
+
+.dark-theme #personal-logo {
+    filter: none;
+}
+
+.dark-theme .scroll__icon {
+    border-color: white;
+}
+
+.dark-theme .scroll__icon:after {
+    background-color: white;
 }
     
 
@@ -244,8 +286,8 @@ nav {
 }
 
 #personal-logo {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     filter: invert(1);
 }
 
@@ -276,7 +318,17 @@ MODAL
     border-radius: 20px;
     overflow: hidden;
     display: flex;
+    visibility: hidden;
+    z-index: -1;
+    transition: visibility 1s z-index 1s, box-shadow 0.5s ease;
 }
+
+.modal--open .modal{
+    z-index: 60;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+    visibility: visible;
+}
+
 
 .modal__half {
     width: 50%;
@@ -285,10 +337,18 @@ MODAL
     flex-direction: column;
     justify-content: center;
     position: relative;
+    transition: all 300ms ease-in;
+}
+
+.modal--open .modal__about,
+.modal--open .modal__contact
+ {
+    transform: translateX(0%);
 }
 
 .modal__about {
     background-color: rgb(245, 245, 245);
+    transform: translateX(-110%);
 }
 
 .modal__languages {
@@ -330,6 +390,7 @@ MODAL
 .modal__contact {
     background-color: #242424;
     color: white;
+    transform: translateX(110%);
 }
 
 .modal__title {
@@ -377,7 +438,7 @@ MODAL
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: -1;
@@ -398,6 +459,7 @@ MODAL
 
 .modal__overlay--visible {
     z-index: 1;
+    display: flex;
 }
 
  .fa-spinner {

@@ -41,14 +41,14 @@
               >Projects</a
             >
           </li>
-          <li class="nav__link">
+          <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
               >Contact</a
             >
           </li>
-          <li class="nav__link click">
+          <li class="nav__link click" onclick="toggleDark()">
             <a
               href="#"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
@@ -67,7 +67,7 @@
             applications with great user experiences that positively impact the
             world
             <br />
-            Here's a bit more <b class="red">about me</b>.
+            Here's a bit more <b class="red click" onclick="toggleModal()">about me</b>.
           </p>
           <div class="social__list">
             <a
@@ -91,7 +91,7 @@
           </div>
         </div>
       </header>
-      <button class="mail__btn click">
+      <button class="mail__btn click" onclick="toggleModal()">
         <i class="fa-solid fa-envelope"></i>
       </button>
       <a href="#projects" class="scroll">
@@ -126,6 +126,7 @@
           </div>
         </div>
         <div class="modal__half modal__contact">
+        <i class="fa-solid fa-x modal__exit click" onclick="toggleModal()"></i>
             <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
             <h4 class="modal__sub-title modal__sub-title--contact">I would love to hear from you!</h4>
             <form onsubmit="contact(event)" id="contact__form">
@@ -150,7 +151,6 @@
                 Thanks for the message! Looking foward to speaking to you soon.
             </div>
         </div>
-        <i class="fa-solid fa-x modal__exit click"></i>
       </div>
     </section>
 
